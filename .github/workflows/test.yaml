@@ -1,0 +1,17 @@
+name: test-github-actions-vdf
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  test-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - name: test-dummy-actions
+        env:
+          USERNAME: ${{ vars.USERNAME }}
+        run: python get_names.py
