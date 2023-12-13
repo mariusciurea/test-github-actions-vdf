@@ -3,6 +3,7 @@ name: test-github-actions-vdf
 on:
   schedule:
     - cron: '*/5 * * * *'
+  workflow_dispatch:
 jobs:
   test-actions:
     runs-on: ubuntu-latest
